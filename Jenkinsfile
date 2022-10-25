@@ -2,11 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout From SCM') {
-            steps {
-                echo 'Checkout from SCM..'
-            }
-        }
         stage('Pre-build stg') {
             steps {
                 echo 'Prebuild actions..'
