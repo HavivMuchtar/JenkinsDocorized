@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Pre-build stg') {
             steps {
-                echo 'prebuild actions..'
+                echo 'Prebuild actions..'
             }
         }
         stage('Build') {
@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Security') {
             steps {
-                sh 'echo "this is security"'
+                sh 'echo "This is security"'
             }
         }
         stage('Back-end') {
@@ -44,7 +44,7 @@ pipeline {
         }
         stage('Post') {
             steps {
-                echo "clear env"
+                echo "Clear env"
             }
         }
     }
