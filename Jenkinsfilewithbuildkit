@@ -4,12 +4,12 @@ pipeline {
     stages {
         stage('Pre-build stg') {
             steps {
-                sh 'DOCKER_BUILDKIT=1 docker build --target pre-build .'
+                sh 'DOCKER_BUILDKIT=1 docker build --target pre-builder .'
             }
         }
         stage('Build') {
             steps {
-              sh 'DOCKER_BUILDKIT=1 docker build --target build .'
+              sh 'DOCKER_BUILDKIT=1 docker build --target builder .'
             }
         }
         stage('Test') {
