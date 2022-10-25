@@ -2,9 +2,45 @@ pipeline {
     agent any
 
     stages {
-        stage('1 line solution') {
+        stage('Pre-build stg') {
             steps {
+                echo 'Prebuild actions..'
+            }
+        }
+        stage('Build') {
+            steps {
+              sh 'echo "docker build --target Build"'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'echo "docker build --target test"'
+            }
+        }
+        stage('Security') {
+            steps {
+                sh 'echo "This is security"'
+            }
+        }
+        stage('Back-end') {
+            steps {
+                sh 'echo "mvn --version"'
+            }
+        }
+        stage('Front-end') {
+            steps {
+                sh 'echo "node --version"'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'echo "s3 cp src dst"'
                 sh 'DOCKER_BUILDKIT=1 docker build --target post .'
+            }
+        }
+        stage('Post') {
+            steps {
+                echo "Clear env"
             }
         }
     }
