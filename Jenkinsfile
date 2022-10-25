@@ -34,7 +34,7 @@ pipeline {
         }
         stage('Front-end') {
             steps {
-                sh 'node --version'
+                sh 'echo "node --version"'
             }
         }
         stage('Deploy') {
