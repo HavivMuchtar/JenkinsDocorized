@@ -22,7 +22,7 @@ pipeline {
                 echo 'docker build --target test'
             }
         }
-        stage('security') {
+        stage('Security') {
             steps {
                 sh 'echo "this is security"'
             }
