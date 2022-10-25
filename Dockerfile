@@ -1,5 +1,6 @@
 FROM alpine:latest as pre-builder
 workdir /pre-builder
+COPY ./test.py .
 CMD ["sh", "echo", "Prebuild actions"]
 
 FROM alpine:latest as builder
@@ -8,6 +9,7 @@ CMD ["sh", "docker build --target Build ."]
 
 FROM alpine:latest as test
 workdir /test
+COPY --from=pre-builder /pre-builder/test.py .
 CMD ["sh", "docker build --target test ."]
 
 FROM alpine:latest as security
