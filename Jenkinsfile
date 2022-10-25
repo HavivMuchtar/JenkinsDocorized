@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'docker build --target test'
+                sh 'echo "docker build --target test"'
             }
         }
         stage('Security') {
