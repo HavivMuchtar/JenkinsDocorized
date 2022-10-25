@@ -54,9 +54,8 @@ pipeline {
                 sh 's3 cp src dst'
             }
         }
-      stage ('Post') {
-        echo "clear env"
-      }
-      
+        stage('Post') {
+            echo "clear env"
+        }
     }
 }
