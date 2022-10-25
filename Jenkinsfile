@@ -24,7 +24,7 @@ pipeline {
         }
         stage('security') {
             steps {
-                sh 'echo this is security'
+                sh 'echo "this is security"'
             }
         }
         stage('Back-end') {
