@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-              sh 'docker build --target Build'
+              sh 'echo "docker build --target Build"'
             }
         }
         stage('Test') {
@@ -35,7 +35,7 @@ pipeline {
                 docker { image 'maven:3.8.1-adoptopenjdk-11' }
             }
             steps {
-                sh 'mvn --version'
+                sh 'echo "mvn --version"'
             }
         }
         stage('Front-end') {
@@ -51,7 +51,7 @@ pipeline {
                 docker { image 'aws-cli:latest' }
             }
             steps {
-                sh 's3 cp src dst'
+                sh 'echo "s3 cp src dst"'
             }
         }
         stage('Post') {
