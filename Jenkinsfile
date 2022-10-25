@@ -24,7 +24,7 @@ pipeline {
         }
         stage('security') {
             agent {
-                docker { image 'alpine:latest' }
+                any { image 'alpine:latest' }
             }
             steps {
                 sh 'echo this is security'
@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Back-end') {
             agent {
-                docker { image 'maven:3.8.1-adoptopenjdk-11' }
+                any { image 'maven:3.8.1-adoptopenjdk-11' }
             }
             steps {
                 sh 'echo "mvn --version"'
@@ -40,7 +40,7 @@ pipeline {
         }
         stage('Front-end') {
             agent {
-                docker { image 'node:16.13.1-alpine' }
+                any { image 'node:16.13.1-alpine' }
             }
             steps {
                 sh 'node --version'
@@ -48,7 +48,7 @@ pipeline {
         }
         stage('Deploy') {
             agent {
-                docker { image 'aws-cli:latest' }
+                any { image 'aws-cli:latest' }
             }
             steps {
                 sh 'echo "s3 cp src dst"'
