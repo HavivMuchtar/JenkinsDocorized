@@ -55,7 +55,9 @@ pipeline {
             }
         }
         stage('Post') {
-            echo "clear env"
+            steps {
+                echo "clear env"
+            }
         }
     }
 }
