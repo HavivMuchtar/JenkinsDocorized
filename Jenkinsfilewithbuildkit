@@ -4,38 +4,37 @@ pipeline {
     stages {
         stage('Pre-build stg') {
             steps {
-                echo 'Prebuild actions..'
+                sh 'DOCKER_BUILDKIT=1 docker build --target pre-build .'
             }
         }
         stage('Build') {
             steps {
-              sh 'echo "docker build --target Build"'
+              sh 'DOCKER_BUILDKIT=1 docker build --target build .'
             }
         }
         stage('Test') {
             steps {
-                sh 'echo "docker build --target test"'
+               sh 'DOCKER_BUILDKIT=1 docker build --target test .'
             }
         }
         stage('Security') {
             steps {
-                sh 'echo "This is security"'
+                sh 'DOCKER_BUILDKIT=1 docker build --target security .'
             }
         }
         stage('Back-end') {
             steps {
-                sh 'echo "mvn --version"'
+                sh 'DOCKER_BUILDKIT=1 docker build --target backend .'
             }
         }
         stage('Front-end') {
             steps {
-                sh 'echo "node --version"'
+                sh 'DOCKER_BUILDKIT=1 docker build --target frontend .'
             }
         }
         stage('Deploy') {
             steps {
                 sh 'echo "s3 cp src dst"'
-                sh 'DOCKER_BUILDKIT=1 docker build --target post .'
             }
         }
         stage('Post') {
